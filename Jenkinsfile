@@ -1,9 +1,8 @@
 pipeline {
     agent {
         kubernetes {
-            name 'node-build-agent'
-            image 'node:lts-bullseye-slim'
-            args '-p 3000:3000'
+            namespace 'cicd'
+            containerTemplate 'node:lts-bullseye-slim'
         }
     }
     stages {
